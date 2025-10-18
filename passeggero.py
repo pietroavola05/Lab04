@@ -1,5 +1,6 @@
 class Passeggero:
     def __init__(self, riga):
+        #definisco gli attributi del passeggero
         self._codicePasseggero = riga[0]
         self._nomePasseggero = riga[1]
         self._cognomePasseggero = riga[2]
