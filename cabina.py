@@ -29,6 +29,20 @@ class Cabina():
         else: #altrimenti ritorna una condizione falsa
             return False
 
+    def __le__(self, other):
+        #lower than or equal quindi la logica che devo mantenere è del vero se è un oggetto minore (sulla base dell'attributo che passo) rispetto all'altro.
+        if self.prezzo <= other.prezzo:
+            return True
+        else:
+            return False
+
+    def __lt__(self, other):
+        #per ordinamento con funzione sorted al padre
+        if self.prezzo <= other.prezzo:
+            return True
+        else:
+            return False
+
 
 class CabinaAnimali(Cabina):
     def __init__(self, riga):

@@ -1,7 +1,8 @@
 from logging import raiseExceptions
 from cabina import Cabina, CabinaDeluxe, CabinaAnimali
 from passeggero import Passeggero
-import operator
+#import operator (nella versione precedente ho fatto l'ordinamento con key=operator.attrgetter('prezzo').
+# In questa versione è sostituito da un sorted poichè cabina ha il metodo lt
 import csv
 
 class Crociera:
@@ -117,7 +118,9 @@ class Crociera:
 
     def cabine_ordinate_per_prezzo(self):
         """Restituisce la lista ordinata delle cabine in base al prezzo"""
-        lista_cabine_ordinate = sorted(self._listaCabine, key=operator.attrgetter('prezzo'))
+        #lista_cabine_ordinate = sorted(self._listaCabine, key=operator.attrgetter('prezzo'))
+
+        lista_cabine_ordinate = sorted(self._listaCabine) #richiama il metodo __lt__ delle cabine (dichiarata nel padre)
         return lista_cabine_ordinate
 
 
